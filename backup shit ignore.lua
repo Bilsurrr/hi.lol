@@ -181,7 +181,7 @@
             imageLabel.BackgroundTransparency = 1
             imageLabel.ScaleType = Enum.ScaleType.Fit
             imageLabel.Parent = frame
-    
+            
             Rayfield:Notify({
                 Title = "Image Loaded!",
                 Content = "Draggable image window created.",
@@ -190,6 +190,16 @@
         end
     })
     
+	PictureTab:CreateButton({
+		Name = "Delete All Pictures",
+		Callback = function()
+			for i,v in pairs(game:GetService("CoreGui"):GetChildren())do
+				if v.Name == 'PictureViewer' and v:IsA('ScreenGui') then
+					v:Destroy()
+				end
+			end
+		end,
+	})
     
     
     
