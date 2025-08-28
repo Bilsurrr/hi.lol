@@ -55,47 +55,55 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
        }
     })
     
-    local Tab = Window:CreateTab("📜 | PLACEHOLDER", nil)
-    
-    local debugLabel, debugButton
-    
-    -- Create the toggle
-    Tab:CreateToggle({
-        Name = "Enable Debug/Beta/Alpha Testing Shit",
-        CurrentValue = false,
-        Callback = function(enabled)
-            if enabled then
-                -- Create debug UI elements if they don't exist yet
-                if not debugLabel then
-                    debugLabel = Tab:CreateLabel("⚠️ DEBUG MODE ENABLED - Features in development")
-                else
-                    debugLabel:SetVisible(true)
-                end
-    
-                if not debugButton then
-                    debugButton = Tab:CreateButton({
-                        Name = "Test Feature (WIP)",
-                        Callback = function()
-                            print("Debug feature triggered!")
-                            Rayfield:Notify({
-                                Title = "Debug",
-                                Content = "This feature is a work in progress.",
-                                Duration = 3
-                            })
-                        end
-                    })
-                else
-                    debugButton:SetVisible(true)
-                end
-    
-            else
-                -- Hide debug UI elements when toggle is off
-                if debugLabel then debugLabel:SetVisible(false) end
-                if debugButton then debugButton:SetVisible(false) end
-            end
-        end
-    })
-    
+    local Tab = Window:CreateTab("🎨 | THENE", nil)
+        
+    Tab:CreateButton({
+    Name = "Default Theme",
+    Callback = ChangeTheme("Default")
+})
+
+Tab:CreateButton({
+    Name = "Amber Glow Theme",
+    Callback = ChangeTheme("AmberGlow")
+})
+
+Tab:CreateButton({
+    Name = "Amethyst (Purple) Theme",
+    Callback = ChangeTheme("Amethyst")
+})
+
+Tab:CreateButton({
+    Name = "Bloom Theme",
+    Callback = ChangeTheme("Bloom")
+})
+
+Tab:CreateButton({
+    Name = "Dark Blue Theme",
+    Callback = ChangeTheme("DarkBlue")
+})
+
+Tab:CreateButton({
+    Name = "Green Theme",
+    Callback = ChangeTheme("Green")
+})
+
+Tab:CreateButton({
+    Name = "Light Theme",
+    Callback = ChangeTheme("Light")
+})
+
+Tab:CreateButton({
+    Name = "Ocean Theme",
+    Callback = ChangeTheme("Ocean")
+})
+
+Tab:CreateButton({
+    Name = "Serenity Theme",
+    Callback = ChangeTheme("Serenity")
+})  
+
+    local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
+
     Tab:CreateInput({
         Name = "Execute Code",
         PlaceholderText = "Enter Lua code here...",
@@ -119,7 +127,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
         end
     })
     
-    local MusicTab = Window:CreateTab("🎵 | Music Player", nil)
+    local MusicTab = Window:CreateTab("🎵 | MUSIC PLAYER", nil)
     
     local playingSound = nil
     
@@ -1128,3 +1136,4 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     })
     
     
+
