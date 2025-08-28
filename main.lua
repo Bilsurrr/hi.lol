@@ -1,3 +1,5 @@
+
+
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
     
     local function DisableAntiCheat()
@@ -1136,4 +1138,5 @@ Tab:CreateButton({
     })
     
     
+
 
