@@ -959,7 +959,7 @@ Tab:CreateButton({
        Name = "DEX EXPLORER",
        Callback = function()
           pcall(function()
-             loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+             loadstring(game:HttpGet("https://raw.githubusercontent.com/TechHog8984/Dex-Explorer-V3/refs/heads/main/dex.lua"))()
           end) 
        end,
     })
@@ -1138,5 +1138,6 @@ Tab:CreateButton({
     })
     
     
+
 
 
