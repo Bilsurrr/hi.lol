@@ -1077,9 +1077,3 @@
         end
     })
     
-    
-end)
-
-closeBtn.MouseButton1Click:Connect(function()
-    gui:Destroy()
-end)
