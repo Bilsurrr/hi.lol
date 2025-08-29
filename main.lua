@@ -303,18 +303,9 @@ Tab:CreateButton({
         systemInfo.gameName = resultName.Name
     end
     
-    Tab:CreateSection("Pardon.")
-    Tab:CreateLabel("im very sorry guys...", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("there are now 2 versions of the executor bloom and amethyst", nil, Color3.fromRGB(255, 255, 255), false)
+    Tab:CreateSection(".")
+    Tab:CreateLabel("im sorry.", nil, Color3.fromRGB(255, 255, 255), false)
     Tab:CreateLabel("...", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("there was a error that a lot of scripts suddenly didnt work anymore", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("so now there are some scripts that are just forever gone, some that are only on amethyst, some that are only on bloom, etc...", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateButton({
-       Name = "old version of fluxus (will be updated) (bloom)",
-       Callback = function()
-           loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/Fluxus/refs/heads/main/fluxus", true))()
-       end,
-    })
 
     Tab:CreateSection("YOUR INFO")
     
@@ -1138,6 +1129,7 @@ Tab:CreateButton({
     })
     
     
+
 
 
 
