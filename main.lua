@@ -2,23 +2,10 @@
  add working simplesy.
   add more hubs add everythin'
    format it,
-    then obfuscate]]
+    do the color shit
+       then obfuscate
+       pic deletor allat ]]
 
-if RBXL_RUNNING_SCRIPT or _G.RBXL_RUNNING_SCRIPT then return end
-
-if getgenv then
-	getgenv().DISABLE_RAYFIELD_REQUESTS = true
-end
-
-local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
-local MarketplaceService = game:GetService("MarketplaceService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local SoundService = game:GetService("SoundService")
-local HttpService = game:GetService("HttpService")
-local RunService = game:GetService("RunService")
-local Workspace = game:GetService("Workspace")
-local Lighting = game:GetService("Lighting")
-local Players = game:GetService("Players")
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
     
@@ -37,7 +24,8 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
-    --blacklisted users here
+    
+    -- Replace with the username you want to kick
     local blockedUser = "MrBeast"
     
     if LocalPlayer.Name == blockedUser then
@@ -47,7 +35,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
     
     local Window = Rayfield:CreateWindow({
-       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 |3.0.0",
+       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 | 2.0.3",
        Icon = 0,
        LoadingTitle = "fluxus hub",
        LoadingSubtitle = "LOADING",
@@ -75,107 +63,12 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
           Key = {"bilsr123"}
        }
     })
+    
+local Tab = Window:CreateTab("🎨 | THEME", nil)
+        
+Tab:CreateLabel("wip.", nil, Color3.fromRGB(255, 255, 255), false)
 
-
-local function Notify(title, content)
-	Rayfield:Notify({
-		["Title"] = title,
-		["Content"] = content,
-		["Duration"] = 5,
-		["Image"] = "bell"
-	})
-end
-
-local function ChangeTheme(theme)
-	return function()
-		Window.ModifyTheme(theme)
-	end
-end
-
-local UserTab = Window:CreateTab("HUB", "info")
-UserTab:CreateSection("Details")
-UserTab:CreateLabel("Version: 3.0.0", "history")
-UserTab:CreateLabel("Role: Premium", "circle-user-round")
-
-UserTab:CreateDivider()
-
-UserTab:CreateSection("Theme")
-
-UserTab:CreateButton({
-	Name = "Default Theme",
-	Callback = ChangeTheme("Default")
-})
-
-UserTab:CreateButton({
-	Name = "Amber Glow Theme",
-	Callback = ChangeTheme("AmberGlow")
-})
-
-UserTab:CreateButton({
-	Name = "Amethyst (Purple) Theme",
-	Callback = ChangeTheme("Amethyst")
-})
-
-UserTab:CreateButton({
-	Name = "Bloom Theme",
-	Callback = ChangeTheme("Bloom")
-})
-
-UserTab:CreateButton({
-	Name = "Dark Blue Theme",
-	Callback = ChangeTheme("DarkBlue")
-})
-
-UserTab:CreateButton({
-	Name = "Green Theme",
-	Callback = ChangeTheme("Green")
-})
-
-UserTab:CreateButton({
-	Name = "Light Theme",
-	Callback = ChangeTheme("Light")
-})
-
-UserTab:CreateButton({
-	Name = "Ocean Theme",
-	Callback = ChangeTheme("Ocean")
-})
-
-UserTab:CreateButton({
-	Name = "Serenity Theme",
-	Callback = ChangeTheme("Serenity")
-})
-
-local SettingsTab = Window:CreateTab("SETTINGS", "settings")
-local AntiFling
-
-SettingsTab:CreateLabel("HWID: " .. RbxAnalyticsService:GetClientId(), "binary")
-SettingsTab:CreateToggle({
-	Name = "Anti Fling",
-	CurrentValue = false,
-	Flag = "AntiFlinging",
-	Callback = function(value)
-		if AntiFling then
-			AntiFling:Disconnect()
-			AntiFling = nil
-		end
-		if value == true then
-			AntiFling = RunService.Stepped:Connect(function()
-				for _, player in pairs(Players:GetPlayers()) do
-					if player ~= Players.LocalPlayer and player.Character then
-						for _, v in pairs(player.Character:GetDescendants()) do
-							if v:IsA("BasePart") then
-								v.CanCollide = false
-							end
-						end
-					end
-				end
-			end)
-		end
-	end
-})
-
-local Tab = Window:CreateTab("FLUXUS", "droplet")
+local Tab = Window:CreateTab("💧 | Fluxus Related", nil)
 
 Tab:CreateButton({
        Name = "Alternative Version",
@@ -185,7 +78,7 @@ Tab:CreateButton({
     })
 
 
-local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
+local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
 
     Tab:CreateInput({
         Name = "Execute Code",
@@ -210,7 +103,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
         end
     })
     
-    local MusicTab = Window:CreateTab("MUSIC PLAYER", "music")
+    local MusicTab = Window:CreateTab("🎵 | MUSIC PLAYER", nil)
     
     local playingSound = nil
     
@@ -246,7 +139,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
         end
     })
     
-    local PictureTab = Window:CreateTab("DECAL VIEWER", "image")
+    local PictureTab = Window:CreateTab("🖼️ | Picture Viewer", nil)
     
     PictureTab:CreateInput({
         Name = "Insert Image ID",
@@ -283,16 +176,8 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
         end
     })
     
-    PictureTab:CreateButton({
-		Name = "Delete All Pictures",
-		Callback = function()
-			for i,v in pairs(game:GetService("CoreGui"):GetChildren())do
-				if v.Name == 'PictureViewer' and v:IsA('ScreenGui') then
-					v:Destroy()
-				end
-			end
-		end,
-	})
+    
+    
     
     MusicTab:CreateButton({
         Name = "🛑 Stop Music",
@@ -340,7 +225,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     })
     
     
-    local Tab = Window:CreateTab("HOME", "dock")
+    local Tab = Window:CreateTab("🏠 | HOME", nil)
     
     -- System Info Section
     local HttpService = game:GetService("HttpService")
@@ -465,11 +350,11 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     
     -- Open Website Button
     Tab:CreateButton({
-        Name = "Copy TEST",
+        Name = "Copy Require Script",
         Callback = function()
-            local url = "Test.V2" -- change this to your link
+            local url = "require(11183244198):s('sugma', game.Players.URUSERNAME)"
             setclipboard(url)
-            print("Website URL copied to clipboard! Paste it in your browser.")
+            print("copied.")
             Rayfield:Notify({
                 Title = "Copied!",
                 Content = "Copied the text.",
@@ -539,7 +424,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     
     
     -- GAMES TAB --
-    local Tab = Window:CreateTab("GAMES", "gamepad-2")
+    local Tab = Window:CreateTab("🎮 | GAMES", nil)
     Tab:CreateSection("MAIN")
     
     -- Fun and Sussy stuff back
@@ -705,7 +590,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     })
     
     -- HUBS TAB --
-    local Tab = Window:CreateTab("HUBS", "clipboard")
+    local Tab = Window:CreateTab("📜 | HUBS", nil)
     Tab:CreateSection("MAIN")
     
     Tab:CreateButton({
@@ -950,7 +835,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     })
     
     -- ETC TAB --
-    local Tab = Window:CreateTab("ETC", "ellipsis")
+    local Tab = Window:CreateTab("➕ | ETC", nil)
     Tab:CreateSection("MAIN")
     
     Tab:CreateButton({
@@ -1097,7 +982,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
        end,
     })
     
-    local Tab = Window:CreateTab("FUN", "cake")
+    local Tab = Window:CreateTab("🥳 | FUN", nil)
     Tab:CreateSection("MAIN")
     
     
@@ -1173,7 +1058,7 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
        end,
     })
     
-    local Tab = Window:CreateTab("BACKDOORS", "door-closed") -- Title, Image
+    local Tab = Window:CreateTab("🤘| BACKDOORS", nil) -- Title, Image
     local Button = Tab:CreateButton({
        Name = "lalol backdoor",
        Callback = function()
@@ -1213,8 +1098,4 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     
 
 
-
-
-
-Rayfield:LoadConfiguration()
 
