@@ -1,5 +1,4 @@
---[[Future changes
- add working simplesy.
+--[[Future changes.
   add more hubs add everythin'
    format it,
        then obfuscate ]]
@@ -1094,6 +1093,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
+
 
 
 
