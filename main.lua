@@ -2,9 +2,7 @@
  add working simplesy.
   add more hubs add everythin'
    format it,
-    do the color shit
-       then obfuscate
-       pic deletor allat ]]
+       then obfuscate ]]
 
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
@@ -957,7 +955,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
        Name = "SIMPLESPY",
        Callback = function()
           pcall(function()
-             loadstring(game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/SimpleSpyZxL/refs/heads/main/notify.lua"))()        
+             loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/refs/heads/main/SimpleSpySource.lua", true))()
           end) 
        end,
     })
