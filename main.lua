@@ -21,16 +21,12 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
-    
-    -- Replace with the username you want to kick
-    local blockedUser = "MrBeast"
-    
+    local blockedUser = "MrBeast"    
     if LocalPlayer.Name == blockedUser then
         LocalPlayer:Kick("Access denied.")
     end
     
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-    
     local Window = Rayfield:CreateWindow({
        Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 | 2.0.3",
        Icon = 0,
@@ -1093,6 +1089,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
+
 
 
 
