@@ -44,7 +44,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     
     local Window = Rayfield:CreateWindow({
        Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 |3.0.0",
-       Icon = 6031077996,
+       Icon = 81821536708572,
        LoadingTitle = "fluxus hub",
        LoadingSubtitle = "LOADING",
        Theme = "Amethyst",
