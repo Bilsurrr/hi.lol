@@ -1,8 +1,6 @@
---[[Future changes.
-  add more hubs add everythin'
-   format it,
-       then obfuscate ]]
-
+--[[NOTES From Bilsr to bitsproxy:
+if u see this pls format the script make it like koel]]
+ 
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
     
@@ -788,7 +786,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     Tab:CreateButton({
        Name = "BYPASSER",
        Callback = function()
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/AnnaRoblox/AnnaBypasser/refs/heads/main/AnnaBypasser.lua",true))()
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/XE3Scripts/Axur/refs/heads/main/AxurBypassV2", true))()
        end,
     })
     
@@ -1089,6 +1087,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
+
 
 
 
