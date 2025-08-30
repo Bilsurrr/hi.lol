@@ -1,3 +1,19 @@
+if RBXL_RUNNING_SCRIPT or _G.RBXL_RUNNING_SCRIPT then return end
+
+if getgenv then
+	getgenv().DISABLE_RAYFIELD_REQUESTS = true
+end
+
+local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local SoundService = game:GetService("SoundService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local Lighting = game:GetService("Lighting")
+local Players = game:GetService("Players")
+
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
     
     local function DisableAntiCheat()
@@ -15,8 +31,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
-    
-    -- Replace with the username you want to kick
+    --blacklisted users here
     local blockedUser = "MrBeast"
     
     if LocalPlayer.Name == blockedUser then
@@ -26,7 +41,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
     
     local Window = Rayfield:CreateWindow({
-       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 | 2.0.3",
+       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 |3.0.0",
        Icon = 0,
        LoadingTitle = "fluxus hub",
        LoadingSubtitle = "LOADING",
@@ -47,29 +62,124 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
        KeySettings = {
           Title = "vBiLsR",
           Subtitle = "by bilsr",
-          Note = "123",
+          Note = "code is bilsr123",
           FileName = "Key1234436",
           SaveKey = false,
           GrabKeyFromSite = false,
           Key = {"bilsr123"}
        }
     })
-    
-local Tab = Window:CreateTab("🎨 | THEME", nil)
-        
-Tab:CreateLabel("wip.", nil, Color3.fromRGB(255, 255, 255), false)
 
-local Tab = Window:CreateTab("🔢 | ALTERNATIVE", nil)
 
-    Tab:CreateButton({
-        Name = "ALT",
-        Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/hi.lol/refs/heads/main/backup%20shit%20ignore.lua"))()
-        end
+local function Notify(title, content)
+	Rayfield:Notify({
+		["Title"] = title,
+		["Content"] = content,
+		["Duration"] = 5,
+		["Image"] = "bell"
+	})
+end
+
+local function ChangeTheme(theme)
+	return function()
+		Window.ModifyTheme(theme)
+	end
+end
+
+local UserTab = Window:CreateTab("HUB", "info")
+UserTab:CreateSection("Details")
+UserTab:CreateLabel("Version: 3.0.0", "history")
+UserTab:CreateLabel("Role: Premium", "circle-user-round")
+
+UserTab:CreateDivider()
+
+UserTab:CreateSection("Theme")
+
+UserTab:CreateButton({
+	Name = "Default Theme",
+	Callback = ChangeTheme("Default")
+})
+
+UserTab:CreateButton({
+	Name = "Amber Glow Theme",
+	Callback = ChangeTheme("AmberGlow")
+})
+
+UserTab:CreateButton({
+	Name = "Amethyst (Purple) Theme",
+	Callback = ChangeTheme("Amethyst")
+})
+
+UserTab:CreateButton({
+	Name = "Bloom Theme",
+	Callback = ChangeTheme("Bloom")
+})
+
+UserTab:CreateButton({
+	Name = "Dark Blue Theme",
+	Callback = ChangeTheme("DarkBlue")
+})
+
+UserTab:CreateButton({
+	Name = "Green Theme",
+	Callback = ChangeTheme("Green")
+})
+
+UserTab:CreateButton({
+	Name = "Light Theme",
+	Callback = ChangeTheme("Light")
+})
+
+UserTab:CreateButton({
+	Name = "Ocean Theme",
+	Callback = ChangeTheme("Ocean")
+})
+
+UserTab:CreateButton({
+	Name = "Serenity Theme",
+	Callback = ChangeTheme("Serenity")
+})
+
+local SettingsTab = Window:CreateTab("SETTINGS", "settings")
+local AntiFling
+
+SettingsTab:CreateLabel("HWID: " .. RbxAnalyticsService:GetClientId(), "binary")
+SettingsTab:CreateToggle({
+	Name = "Anti Fling",
+	CurrentValue = false,
+	Flag = "AntiFlinging",
+	Callback = function(value)
+		if AntiFling then
+			AntiFling:Disconnect()
+			AntiFling = nil
+		end
+		if value == true then
+			AntiFling = RunService.Stepped:Connect(function()
+				for _, player in pairs(Players:GetPlayers()) do
+					if player ~= Players.LocalPlayer and player.Character then
+						for _, v in pairs(player.Character:GetDescendants()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false
+							end
+						end
+					end
+				end
+			end)
+		end
+	end
+})
+
+local Tab = Window:CreateTab("FLUXUS", "droplet")
+
+Tab:CreateButton({
+       Name = "Alternative Version",
+       Callback = function()
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/Bilsurrr/hi.lol/refs/heads/main/backup%20shit%20ignore.lua"))()
+       end,
     })
 
 
-local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
+local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
 
     Tab:CreateInput({
         Name = "Execute Code",
@@ -94,7 +204,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
         end
     })
     
-    local MusicTab = Window:CreateTab("🎵 | MUSIC PLAYER", nil)
+    local MusicTab = Window:CreateTab("MUSIC PLAYER", "music")
     
     local playingSound = nil
     
@@ -130,7 +240,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
         end
     })
     
-    local PictureTab = Window:CreateTab("🖼️ | Picture Viewer", nil)
+    local PictureTab = Window:CreateTab("DECAL VIEWER", "image")
     
     PictureTab:CreateInput({
         Name = "Insert Image ID",
@@ -167,8 +277,16 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
         end
     })
     
-    
-    
+    PictureTab:CreateButton({
+		Name = "Delete All Pictures",
+		Callback = function()
+			for i,v in pairs(game:GetService("CoreGui"):GetChildren())do
+				if v.Name == 'PictureViewer' and v:IsA('ScreenGui') then
+					v:Destroy()
+				end
+			end
+		end,
+	})
     
     MusicTab:CreateButton({
         Name = "🛑 Stop Music",
@@ -216,7 +334,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
-    local Tab = Window:CreateTab("🏠 | HOME", nil)
+    local Tab = Window:CreateTab("HOME", "dock")
     
     -- System Info Section
     local HttpService = game:GetService("HttpService")
@@ -365,15 +483,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     
     Tab:CreateSection("INFO")
     Tab:CreateLabel("made by @bilsr on discord, for bugs or suggestions, feel free to add, i accept every Friend request i get", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("if some of the scripts dont work i cant do anything, i didnt make most of them", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("tested by @leyax_taxbills123 on discord", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("Executors you should be using: XENO, RONIX, SOLARA", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("working on whiteliste stuff notifications and shit", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("code for alpha version is bilsrwashere2", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("Arrayfield (beta rayfield V3 DROPPED)", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("discord earliest beta-alpha_.gBuild below", nil, Color3.fromRGB(255, 255, 255), false)
     Tab:CreateLabel("Sorry guys, a lot of stuff randomly dissapeared, im sorry i will fix it soon", nil, Color3.fromRGB(255, 255, 255), false)
-    Tab:CreateLabel("bloom or amethyst?", nil, Color3.fromRGB(255, 255, 255), false)
     
     Tab:CreateButton({
        Name = "discord prototype",
@@ -423,7 +533,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     
     
     -- GAMES TAB --
-    local Tab = Window:CreateTab("🎮 | GAMES", nil)
+    local Tab = Window:CreateTab("GAMES", "gamepad-2")
     Tab:CreateSection("MAIN")
     
     -- Fun and Sussy stuff back
@@ -589,7 +699,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     -- HUBS TAB --
-    local Tab = Window:CreateTab("📜 | HUBS", nil)
+    local Tab = Window:CreateTab("HUBS", "clipboard")
     Tab:CreateSection("MAIN")
     
     Tab:CreateButton({
@@ -617,7 +727,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     Tab:CreateButton({
        Name = "some random hubb idrk",
        Callback = function()
-          loadloadstring(game:HttpGet("https://pastefy.app/yfhuik5s/raw"))()
+          loadstring(game:HttpGet("https://pastefy.app/yfhuik5s/raw"))()
       end,
     })
 
@@ -834,7 +944,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     -- ETC TAB --
-    local Tab = Window:CreateTab("➕ | ETC", nil)
+    local Tab = Window:CreateTab("ETC", "ellipsis")
     Tab:CreateSection("MAIN")
     
     Tab:CreateButton({
@@ -981,7 +1091,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
        end,
     })
     
-    local Tab = Window:CreateTab("🥳 | FUN", nil)
+    local Tab = Window:CreateTab("FUN", "cake")
     Tab:CreateSection("MAIN")
     
     
@@ -1057,7 +1167,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
        end,
     })
     
-    local Tab = Window:CreateTab("🤘| BACKDOORS", nil) -- Title, Image
+    local Tab = Window:CreateTab("BACKDOORS", "door-closed") -- Title, Image
     local Button = Tab:CreateButton({
        Name = "lalol backdoor",
        Callback = function()
@@ -1098,3 +1208,6 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
 
 
 
+
+
+Rayfield:LoadConfiguration()
