@@ -26,7 +26,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
     local Window = Rayfield:CreateWindow({
        Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 | 2.0.3",
-       Icon = 0,
+       Icon = 81821536708572,
        LoadingTitle = "fluxus hub",
        LoadingSubtitle = "LOADING",
        Theme = "Amethyst",
@@ -1086,6 +1086,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
+
 
 
 
