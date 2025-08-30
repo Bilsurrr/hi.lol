@@ -1,3 +1,9 @@
+--[[Future changes
+ add working simplesy.
+  add more hubs add everythin'
+   format it,
+    then obfuscate]]
+
 if RBXL_RUNNING_SCRIPT or _G.RBXL_RUNNING_SCRIPT then return end
 
 if getgenv then
@@ -1211,3 +1217,4 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
 
 
 Rayfield:LoadConfiguration()
+
