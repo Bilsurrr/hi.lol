@@ -1,5 +1,4 @@
---[[NOTES From Bilsr to bitsproxy:
-if u see this pls format the script make it like koel]]
+--[[we need to obfuscate and format 333]]
  
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugins/refs/heads/main/Rayfield%20Logo%20Remover'))()
@@ -1087,6 +1086,7 @@ local Tab = Window:CreateTab("👑 | NEW COOL STUFF", nil)
     })
     
     
+
 
 
 
