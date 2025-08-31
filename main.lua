@@ -43,8 +43,8 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
     
     local Window = Rayfield:CreateWindow({
-       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 |3.0.0",
-       Icon = 81821536708572,
+       Name = "fluxus | by bilsr/bitsproxy | .gg/VTWCBfCGw2 | 3.0.0",
+       Icon = 11478378840,
        LoadingTitle = "fluxus hub",
        LoadingSubtitle = "LOADING",
        Theme = "Amethyst",
@@ -65,7 +65,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/jalilwas/Sirius-Plugi
           Title = "vBiLsR",
           Subtitle = "by bilsr",
           Note = "code is bilsr123",
-          FileName = "Key1234436",
+          FileName = "Key1234436662",
           SaveKey = false,
           GrabKeyFromSite = false,
           Key = {"bilsr123"}
@@ -767,6 +767,13 @@ local Tab = Window:CreateTab("NEW COOL STUFF", "crown")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/depthso/Sigma-Spy/refs/heads/main/Main.lua"))()
        end,
     })
+
+Tab:CreateButton({
+	Name = "SkyHub",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
+	end,
+})
 
     Tab:CreateButton({
        Name = "cloudhub",
